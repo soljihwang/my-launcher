@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Launcher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🚀 My Launcher</h1>
+      <button id="addBtn">+ 추가</button>
+    </header>
+
+    <section id="pinned-section">
+      <h2>📌 고정</h2>
+      <div id="pinned-list" class="card-grid"></div>
+    </section>
+
+    <section id="category-section">
+      <div id="category-list"></div>
+    </section>
+  </div>
+
+  <!-- 모달 -->
+  <div id="modal" class="hidden">
+    <div class="modal-box">
+      <h2 id="modal-title">링크 추가</h2>
+      <input id="f-title" placeholder="이름" />
+      <input id="f-url" placeholder="URL (https://...)" />
+      <input id="f-category" placeholder="카테고리" />
+      <input id="f-icon" placeholder="이모지 or 이미지 URL" />
+      <label><input type="checkbox" id="f-pinned"> 핀 고정</label>
+      <div class="modal-btns">
+        <button id="saveBtn">저장</button>
+        <button id="cancelBtn">취소</button>
+        <button id="deleteBtn" class="hidden danger">삭제</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
