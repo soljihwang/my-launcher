@@ -4,17 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Launcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Gmarket+Sans:wght@300;500;700&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app">
     <header>
-      <h1>🚀 My Launcher</h1>
-      <button id="addBtn">+ 추가</button>
+      <div class="header-left">
+        <span class="logo">🏠</span>
+        <h1>My Launcher</h1>
+      </div>
+      <div class="header-right">
+        <button id="editToggleBtn" class="btn-outline">✏️ 편집</button>
+        <button id="addBtn" class="btn-primary hidden">+ 추가</button>
+      </div>
     </header>
 
-    <section id="pinned-section">
-      <h2>📌 고정</h2>
+    <section id="pinned-section" class="hidden">
+      <h2 class="section-title">📌 고정됨</h2>
       <div id="pinned-list" class="card-grid"></div>
     </section>
 
@@ -25,17 +33,38 @@
 
   <!-- 모달 -->
   <div id="modal" class="hidden">
+    <div class="modal-backdrop"></div>
     <div class="modal-box">
       <h2 id="modal-title">링크 추가</h2>
-      <input id="f-title" placeholder="이름" />
-      <input id="f-url" placeholder="URL (https://...)" />
-      <input id="f-category" placeholder="카테고리" />
-      <input id="f-icon" placeholder="이모지 or 이미지 URL" />
-      <label><input type="checkbox" id="f-pinned"> 핀 고정</label>
+
+      <div class="form-group">
+        <label>이름</label>
+        <input id="f-title" placeholder="예: 구글 드라이브" />
+      </div>
+      <div class="form-group">
+        <label>URL</label>
+        <input id="f-url" placeholder="https://..." />
+      </div>
+      <div class="form-group">
+        <label>카테고리</label>
+        <input id="f-category" placeholder="예: 업무, 쇼핑, 취미" />
+      </div>
+      <div class="form-group">
+        <label>아이콘 (이모지 선택 또는 직접 입력)</label>
+        <div class="icon-input-row">
+          <input id="f-icon" placeholder="이모지 or 이미지 URL" />
+          <button id="emojiPickerBtn" type="button">😊</button>
+        </div>
+        <div id="emoji-picker" class="hidden"></div>
+      </div>
+      <div class="form-group checkbox-group">
+        <label><input type="checkbox" id="f-pinned"> 📌 상단 고정</label>
+      </div>
+
       <div class="modal-btns">
-        <button id="saveBtn">저장</button>
-        <button id="cancelBtn">취소</button>
-        <button id="deleteBtn" class="hidden danger">삭제</button>
+        <button id="saveBtn" class="btn-primary">저장</button>
+        <button id="cancelBtn" class="btn-outline">취소</button>
+        <button id="deleteBtn" class="btn-danger hidden">삭제</button>
       </div>
     </div>
   </div>
