@@ -5,19 +5,15 @@
 }
 
 :root {
-  --bg: #fff8f2;
-  --bg2: #fff3e8;
+  --bg: #fafaf8;
   --card: #ffffff;
-  --card-hover: #fff8f2;
-  --border: #f0d9c8;
-  --accent: #e8824a;
-  --accent2: #f5a673;
-  --text: #3d2b1f;
-  --text-sub: #9b7b6a;
-  --pin-bg: #fff3e8;
-  --shadow: 0 2px 12px rgba(232,130,74,0.10);
-  --shadow-hover: 0 6px 24px rgba(232,130,74,0.18);
-  --radius: 16px;
+  --border: #e8e4df;
+  --accent: #c0855a;
+  --text: #2c2420;
+  --text-sub: #a89890;
+  --shadow: 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.10);
+  --radius: 12px;
 }
 
 body {
@@ -25,18 +21,16 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  padding: 28px 24px;
-  background-image: radial-gradient(circle at 80% 10%, #fde8d4 0%, transparent 50%),
-                    radial-gradient(circle at 10% 90%, #fdf0e4 0%, transparent 50%);
+  padding: 32px 28px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 36px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--border);
+  margin-bottom: 40px;
 }
 
 .header-left {
@@ -46,15 +40,15 @@ header {
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 
 header h1 {
   font-family: 'Gmarket Sans', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: var(--accent);
-  letter-spacing: -0.5px;
+  color: var(--text);
+  letter-spacing: -0.3px;
 }
 
 .header-right {
@@ -67,132 +61,119 @@ header h1 {
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 9px 20px;
-  border-radius: 50px;
-  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-  box-shadow: 0 2px 8px rgba(232,130,74,0.25);
+  transition: opacity 0.15s;
 }
 
 .btn-primary:hover {
-  background: #d4703a;
-  transform: translateY(-1px);
+  opacity: 0.85;
 }
 
 .btn-outline {
-  background: #fff;
-  color: var(--accent);
-  border: 2px solid var(--accent);
-  padding: 7px 18px;
-  border-radius: 50px;
-  font-size: 0.9rem;
+  background: transparent;
+  color: var(--text-sub);
+  border: 1.5px solid var(--border);
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.15s;
 }
 
 .btn-outline:hover {
-  background: var(--accent);
-  color: #fff;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn-outline.active {
-  background: var(--accent);
-  color: #fff;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn-danger {
-  background: #fff0f0;
-  color: #e05555;
-  border: 2px solid #e05555;
-  padding: 9px 20px;
-  border-radius: 50px;
-  font-size: 0.9rem;
+  background: transparent;
+  color: #c0392b;
+  border: 1.5px solid #e8b4b0;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.15s;
 }
 
 .btn-danger:hover {
-  background: #e05555;
+  background: #c0392b;
   color: #fff;
 }
 
 .section-title {
-  font-family: 'Gmarket Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--text-sub);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 #pinned-section {
-  background: var(--pin-bg);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 28px;
-  border: 1.5px solid var(--border);
+  margin-bottom: 36px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
 }
 
 .category-group {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .card {
   background: var(--card);
   border-radius: var(--radius);
-  padding: 18px 12px;
+  padding: 16px 10px;
   cursor: pointer;
-  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  transition: transform 0.15s, box-shadow 0.15s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   text-align: center;
-  border: 1.5px solid var(--border);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  position: relative;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
-  background: var(--card-hover);
 }
 
 .card .icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1;
 }
 
 .card .icon img {
-  width: 2rem;
-  height: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .card .card-title {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text);
   word-break: break-all;
@@ -200,20 +181,19 @@ header h1 {
 }
 
 .edit-btn {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-sub);
-  background: var(--bg2);
+  background: none;
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 3px 10px;
+  border-radius: 6px;
+  padding: 2px 8px;
   cursor: pointer;
   transition: all 0.15s;
   margin-top: 2px;
 }
 
 .edit-btn:hover {
-  background: var(--accent);
-  color: #fff;
+  color: var(--accent);
   border-color: var(--accent);
 }
 
@@ -234,34 +214,28 @@ header h1 {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(61,43,31,0.35);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(3px);
 }
 
 .modal-box {
   background: #fff;
-  border-radius: 24px;
-  padding: 32px 28px;
+  border-radius: 16px;
+  padding: 28px 24px;
   width: 100%;
-  max-width: 420px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  border: 1.5px solid var(--border);
-  box-shadow: 0 20px 60px rgba(232,130,74,0.18);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
   position: relative;
   z-index: 1;
-  animation: modalIn 0.25s ease;
-}
-
-@keyframes modalIn {
-  from { opacity: 0; transform: scale(0.95) translateY(10px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .modal-box h2 {
   font-family: 'Gmarket Sans', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text);
   font-weight: 700;
 }
@@ -273,21 +247,21 @@ header h1 {
 }
 
 .form-group label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-sub);
 }
 
 .form-group input:not([type="checkbox"]) {
   background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-family: 'Nanum Gothic', sans-serif;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.15s;
 }
 
 .form-group input:focus {
@@ -304,39 +278,39 @@ header h1 {
 }
 
 .icon-input-row button {
-  background: var(--bg2);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 0 14px;
-  font-size: 1.3rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: border-color 0.15s;
 }
 
 .icon-input-row button:hover {
-  background: var(--border);
+  border-color: var(--accent);
 }
 
 .emoji-picker {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
   background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
-  padding: 12px;
-  max-height: 160px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  max-height: 150px;
   overflow-y: auto;
 }
 
 .emoji-picker button {
   background: none;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
   padding: 4px;
   border-radius: 6px;
-  transition: background 0.15s;
+  transition: background 0.12s;
 }
 
 .emoji-picker button:hover {
@@ -347,7 +321,7 @@ header h1 {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text);
   font-weight: 700;
   cursor: pointer;
