@@ -16,10 +16,24 @@ let isEditMode = false;
 loadLinks();
 
 async function loadLinks() {
+  // 캐시 먼저 즉시 표시
+  const cached = localStorage.getItem('launcher_links');
+  if (cached) {
+    links = JSON.parse(cached);
+    render();
+  }
+
+  // 백그라운드에서 최신 데이터 가져오기
   try {
     const res = await fetch(GAS_URL);
-    links = await res.json();
-    render();
+    const fresh = await res.json();
+    localStorage.setItem('launcher_links', JSON.stringify(fresh));
+
+    // 캐시랑 다를 때만 다시 렌더링
+    if (JSON.stringify(fresh) !== JSON.stringify(links)) {
+      links = fresh;
+      render();
+    }
   } catch (e) {
     console.error('불러오기 실패', e);
   }
@@ -35,6 +49,11 @@ async function syncToGAS(payload) {
   } catch (e) {
     console.error('저장 실패', e);
   }
+}
+
+// 여기에 붙여넣기
+function saveCache() {
+  localStorage.setItem('launcher_links', JSON.stringify(links));
 }
 
 // 편집 모드 토글
@@ -192,6 +211,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 
   closeModal();
   render();
+  saveCache();
 
   // 백그라운드 저장
   syncToGAS(payload);
@@ -207,6 +227,7 @@ document.getElementById('deleteBtn').addEventListener('click', () => {
   links = links.filter(l => l.id != editingId);
   closeModal();
   render();
+  saveCache();
 
   // 백그라운드 저장
   syncToGAS(payload);
