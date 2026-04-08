@@ -128,7 +128,12 @@ function cardHTML(link) {
 }
 
 function openLink(url) {
-  window.open(url, '_blank');
+  // solpad iframe 안에서 열릴 때는 부모에게 URL 전달
+  if (window.parent !== window) {
+    window.parent.postMessage({ type: 'solpad-open', url: url }, '*');
+  } else {
+    window.open(url, '_blank');
+  }
 }
 
 // 이모지 피커
